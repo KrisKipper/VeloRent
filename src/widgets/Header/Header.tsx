@@ -1,8 +1,9 @@
 import React from 'react';
-import {Button, Flex, Layout, Menu, Space} from 'antd';
+import {Button, Flex, Layout, Space} from 'antd';
 import {Link} from 'react-router-dom';
-import {useAuth} from "../../entities/auth/model/useAuth.ts";
+import {useAuth} from "../../features/auth/model/useAuth.ts";
 import {routes} from "../../app/routing/constants.ts";
+import {NavigationMenu} from "../../features/NavigationMenu/ui/NavigationMenu.tsx";
 
 const {Header: AntHeader} = Layout;
 
@@ -17,14 +18,7 @@ export const Header: React.FC = () => {
                 </Link>
 
                 <Flex gap={16}>
-                    <Menu mode="horizontal" className="border-0">
-                        <Menu.Item key="home">
-                            <Link to={routes.index}>Главная</Link>
-                        </Menu.Item>
-                        <Menu.Item key="bikes">
-                            <Link to={routes.bikes}>Велосипеды</Link>
-                        </Menu.Item>
-                    </Menu>
+                    <NavigationMenu/>
 
                     <Space>
                         {isAuthenticated ? (

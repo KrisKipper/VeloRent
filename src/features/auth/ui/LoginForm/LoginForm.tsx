@@ -1,5 +1,5 @@
 import {Button, Form, Input} from 'antd';
-import {useLoginForm} from "../model/useLoginForm.ts";
+import {useLoginForm} from "../../model/useLoginForm.ts";
 
 export const LoginForm = () => {
     const {onFinish, isLoading} = useLoginForm()

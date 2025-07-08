@@ -1,6 +1,7 @@
-import {useSignInMutation} from "../../../entities/auth/api/authApi.ts";
+import {useSignInMutation} from "../api/authApi.ts";
 import {useNavigate} from "react-router-dom";
 import {message} from "antd";
+import Cookies from "js-cookie";
 
 export const useLoginForm = () => {
     const [signIn, {isLoading}] = useSignInMutation();
@@ -9,9 +10,11 @@ export const useLoginForm = () => {
     const onFinish = async (values: { email: string; password: string }) => {
         try {
             const {token} = await signIn(values).unwrap();
+            Cookies.set("token", token);
             message.success('Вход выполнен успешно!');
             navigate('/');
         } catch (err) {
+            console.error('Ошибка при входе:', err);
             message.error('Неверный email или пароль');
         }
     };

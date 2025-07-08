@@ -1,15 +1,17 @@
 {
   "files": [],
-  "target": "ESNext",
   "module": "ESNext",
   "moduleResolution": "Node",
-  "strict": true,
-  "jsx": "react-jsx",
-  "baseUrl": "./src",
-  "paths": {
-    "@/*": [
-      "./*"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "strict": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "references": [
     {

@@ -1,4 +1,4 @@
-import {LoginForm} from "../../features/LoginForm/ui/LoginForm.tsx";
+import {LoginForm} from "../../features/auth/ui/LoginForm/LoginForm.tsx";
 
 
 export const LoginPage = () => {
