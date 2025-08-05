@@ -51,14 +51,10 @@ export const authApi = createApi({
                 body: credentials,
             }),
         }),
-        checkAuth: builder.query<{ user: { email: string } }, void>({
-            query: () => '/auth/check',
-        }),
     }),
 });
 
 export const {
     useSignInMutation,
     useSignUpMutation,
-    useCheckAuthQuery,
 } = authApi;

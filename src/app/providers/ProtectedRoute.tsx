@@ -1,6 +1,7 @@
 import {Navigate, useLocation} from 'react-router-dom';
 import type {ReactNode} from 'react';
-import {useAuth} from "../../features/auth/hooks/useAuth.ts";
+import {routes} from "../routing/constants.ts";
+import {useAuth} from "../../features/auth/model/useAuth.ts";
 
 export const ProtectedRoute = ({children}: { children: ReactNode }) => {
     const {isAuthenticated, isLoading} = useAuth();
@@ -11,7 +12,7 @@ export const ProtectedRoute = ({children}: { children: ReactNode }) => {
     }
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" state={{from: location}} replace/>;
+        return <Navigate to={routes.login} state={{from: location}} replace/>;
     }
 
     return children;

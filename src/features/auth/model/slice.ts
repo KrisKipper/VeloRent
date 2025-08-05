@@ -20,33 +20,25 @@ const authSlice = createSlice({
             state.isAuthenticated = false;
             localStorage.removeItem('token');
         },
+        setToken: (state, action) => {
+            state.token = action.payload;
+            state.isAuthenticated = true;
+            localStorage.setItem('token', action.payload);
+        }
     },
     extraReducers: (builder) => {
         builder
             .addMatcher(
                 authApi.endpoints.signIn.matchFulfilled,
                 (state, {payload}) => {
+                    // payload: { status: 'OK', data: { token: string, user: {...} } }
                     state.token = payload.token;
                     state.isAuthenticated = true;
                     localStorage.setItem('token', payload.token);
                 }
             )
-            .addMatcher(
-                authApi.endpoints.checkAuth.matchFulfilled,
-                (state) => {
-                    state.isAuthenticated = true;
-                }
-            )
-            .addMatcher(
-                authApi.endpoints.checkAuth.matchRejected,
-                (state) => {
-                    state.token = null;
-                    state.isAuthenticated = false;
-                    localStorage.removeItem('token');
-                }
-            );
     },
 });
 
-export const {logout} = authSlice.actions;
+export const {logout, setToken} = authSlice.actions;
 export const authReducer = authSlice.reducer;
