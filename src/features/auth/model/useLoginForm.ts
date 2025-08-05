@@ -11,13 +11,14 @@ export const useLoginForm = () => {
 
     const onFinish = async (values: { email: string; password: string }) => {
         try {
-            const {data} = await signIn(values);
-            if (data === undefined) {
+            const response = await signIn(values);
+            if (!response.data?.data) {
                 message.error('Ошибка получения данных');
                 return;
             }
-            localStorage.setItem('token', data.token);
-            dispatch(setToken(data.token));
+
+            const token = response.data.data.token;
+            dispatch(setToken(token));
             message.success('Вход выполнен успешно!');
             navigate('/');
         } catch (err) {

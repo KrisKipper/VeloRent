@@ -8,12 +8,17 @@ interface SignInRequest {
 }
 
 interface SignInResponse {
-    token: string;
-    user: {
-        email: string;
-        firstName?: string;
-        lastName?: string;
+    data: {
+        token: string;
+        user: {
+            id: string;
+            email: string;
+            firstName: null | string;
+            lastName: null | string;
+            approved: boolean;
+        };
     };
+    status: string;
 }
 
 interface SignUpRequest {

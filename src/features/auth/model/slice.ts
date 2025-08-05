@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {authApi} from '../api/authApi.ts';
 
 interface AuthState {
     token: string | null;
@@ -25,18 +24,6 @@ const authSlice = createSlice({
             state.isAuthenticated = true;
             localStorage.setItem('token', action.payload);
         }
-    },
-    extraReducers: (builder) => {
-        builder
-            .addMatcher(
-                authApi.endpoints.signIn.matchFulfilled,
-                (state, {payload}) => {
-                    // payload: { status: 'OK', data: { token: string, user: {...} } }
-                    state.token = payload.token;
-                    state.isAuthenticated = true;
-                    localStorage.setItem('token', payload.token);
-                }
-            )
     },
 });
 
