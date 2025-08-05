@@ -23,10 +23,10 @@ export const Header: React.FC = () => {
                             <Button onClick={logout}>Выйти</Button>
                         ) : (
                             <>
-                                <Link to="/login">
+                                <Link to={routes.login}>
                                     <Button color="purple" variant="outlined">Войти</Button>
                                 </Link>
-                                <Link to="/register">
+                                <Link to={routes.register}>
                                     <Button color="purple" variant="solid">Регистрация</Button>
                                 </Link>
                             </>

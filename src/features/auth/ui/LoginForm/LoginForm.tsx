@@ -5,7 +5,7 @@ export const LoginForm = () => {
     const {onFinish, isLoading} = useLoginForm()
 
     return (
-        <Form onFinish={onFinish} layout="vertical">
+        <Form onFinish={onFinish} layout="vertical" className={"w-[50%] my-0 mx-auto flex flex-col justify-center"}>
             <Form.Item
                 name="email"
                 label="Email"
@@ -23,9 +23,10 @@ export const LoginForm = () => {
             >
                 <Input.Password placeholder="••••••"/>
             </Form.Item>
-            <Form.Item>
+            <Form.Item className={"flex items-center justify-center"}>
                 <Button
-                    type="primary"
+                    color="purple"
+                    variant="solid"
                     htmlType="submit"
                     loading={isLoading}
                     block
