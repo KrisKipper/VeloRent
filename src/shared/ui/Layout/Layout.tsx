@@ -1,6 +1,6 @@
 import React from 'react';
 import {Outlet} from 'react-router-dom';
-import {ConfigProvider, Layout as AntLayout} from 'antd';
+import {Card, ConfigProvider, Layout as AntLayout} from 'antd';
 import {Header} from "../../../widgets/Header/Header.tsx";
 import '../../styles/global.css';
 
@@ -15,11 +15,14 @@ export const Layout: React.FC = () => {
                 },
             }}
         >
-            <AntLayout className="flex justify-center items-center w-[100vw] min-h-[100vh]">
+            <AntLayout className="flex justify-center items-center w-[100vw] min-h-[100vh]"
+                       style={{background: `center / cover no-repeat url("src/assets/bike.jpg")`}}>
                 <Header/>
 
-                <Content className="container m-auto">
-                    <Outlet/>
+                <Content className="container m-auto mt-6">
+                    <Card>
+                        <Outlet/>
+                    </Card>
                 </Content>
             </AntLayout>
         </ConfigProvider>
