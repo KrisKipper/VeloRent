@@ -3,6 +3,7 @@ import {LoginPage} from "../../pages/login";
 import {Layout} from "../../shared/ui/Layout/Layout.tsx";
 import {MainPage} from "../../pages/main";
 import {routes} from "./constants.ts";
+import {ProtectedRoute} from "../providers/ProtectedRoute.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -11,7 +12,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: routes.index,
-                element: <MainPage/>,
+                element:
+                    <ProtectedRoute>
+                        <MainPage/>
+                    </ProtectedRoute>,
             },
             {
                 path: routes.login,
@@ -20,7 +24,3 @@ export const router = createBrowserRouter([
         ],
     },
 ]);
-
-
-//<ProtectedRoute><MainPage/>
-//                 </ProtectedRoute>
