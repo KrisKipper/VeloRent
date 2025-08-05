@@ -4,6 +4,7 @@ import {Layout} from "../../shared/ui/Layout/Layout.tsx";
 import {MainPage} from "../../pages/main";
 import {routes} from "./constants.ts";
 import {ProtectedRoute} from "../providers/ProtectedRoute.tsx";
+import {RegisterPage} from "../../pages/register";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: routes.login,
                 element: <LoginPage/>,
+            },
+            {
+                path: routes.register,
+                element: <RegisterPage/>,
             },
         ],
     },

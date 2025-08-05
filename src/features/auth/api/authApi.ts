@@ -21,7 +21,7 @@ interface SignInResponse {
     status: string;
 }
 
-interface SignUpRequest {
+export interface SignUpRequest {
     email: string;
     password: string;
     clientId: string;
