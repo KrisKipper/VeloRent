@@ -1,18 +1,19 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import {routes} from "../../../app/routing/constants.ts";
 import {Menu} from 'antd';
 
 
-export const NavigationMenu: React.FC = () => {
-    return (
-        <Menu mode="horizontal" className="border-0">
-            <Menu.Item key="home">
-                <Link to={routes.index}>Главная</Link>
+const menuItems = [
+    {key: "home", to: routes.index, label: "Главная"},
+    {key: "bikes", to: routes.bikes, label: "Велосипеды"},
+];
+
+export const NavigationMenu = () => (
+    <Menu mode="horizontal" className="border-0 bg-primary-200">
+        {menuItems.map((item) => (
+            <Menu.Item key={item.key}>
+                <Link to={item.to}>{item.label}</Link>
             </Menu.Item>
-            <Menu.Item key="bikes">
-                <Link to={routes.bikes}>Велосипеды</Link>
-            </Menu.Item>
-        </Menu>
-    )
-}
+        ))}
+    </Menu>
+);

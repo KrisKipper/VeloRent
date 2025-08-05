@@ -11,29 +11,28 @@ export const Header: React.FC = () => {
     const {isAuthenticated, logout} = useAuth();
 
     return (
-        <AntHeader className="shadow-sm m-auto bg-primary-200 w-full">
+        <AntHeader className="shadow-sm m-auto bg-primary-200 w-full p-4 min-h-max">
             <div className="container mx-auto flex justify-between items-center max-w-[1440px]">
                 <Link to={routes.index} className="text-xl font-bold">
-                    Velo App
+                    Velo Rent
                 </Link>
 
                 <Flex gap={16}>
-                    <NavigationMenu/>
-
                     <Space>
                         {isAuthenticated ? (
                             <Button onClick={logout}>Выйти</Button>
                         ) : (
                             <>
                                 <Link to="/login">
-                                    <Button type="text">Войти</Button>
+                                    <Button color="purple" variant="outlined">Войти</Button>
                                 </Link>
                                 <Link to="/register">
-                                    <Button type="primary">Регистрация</Button>
+                                    <Button color="purple" variant="solid">Регистрация</Button>
                                 </Link>
                             </>
                         )}
                     </Space>
+                    <NavigationMenu/>
                 </Flex>
             </div>
         </AntHeader>

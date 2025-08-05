@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {message} from "antd";
 import {useDispatch} from "react-redux";
 import {setToken} from "./slice.ts";
+import {routes} from "../../../app/routing/constants.ts";
 
 export const useLoginForm = () => {
     const [signIn, {isLoading}] = useSignInMutation();
@@ -20,7 +21,7 @@ export const useLoginForm = () => {
             const token = response.data.data.token;
             dispatch(setToken(token));
             message.success('Вход выполнен успешно!');
-            navigate('/');
+            navigate(routes.index);
         } catch (err) {
             console.error('Ошибка при входе:', err);
             message.error('Неверный email или пароль');
