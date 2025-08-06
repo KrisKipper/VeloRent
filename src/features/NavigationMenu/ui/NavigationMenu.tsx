@@ -5,6 +5,7 @@ import {Menu} from 'antd';
 
 const menuItems = [
     {key: "home", to: routes.index, label: "Главная"},
+    {key: "reportTheft", to: routes.reportTheft, label: "Уведомить о краже"},
     {key: "bikes", to: routes.bikes, label: "Велосипеды"},
 ];
 

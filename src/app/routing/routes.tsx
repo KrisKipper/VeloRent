@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
                 path: routes.register,
                 element: <RegisterPage/>,
             },
+            {
+                path: routes.reportTheft,
+                element: <></>,
+            },
         ],
     },
 ]);

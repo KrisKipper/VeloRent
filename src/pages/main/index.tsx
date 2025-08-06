@@ -1,7 +1,8 @@
+import {ContentBlock} from "../../shared/ui/ContentBlock/ContentBlock.tsx";
+import {MainView} from "../../entities/MainView";
+
 export const MainPage = () => {
     return (
-        <div>
-            <h1>Вело</h1>
-        </div>
+        <ContentBlock title={"Добро пожаловать в BikeGuard - защитим велосипеды вместе!"} children={<MainView/>}/>
     );
 };

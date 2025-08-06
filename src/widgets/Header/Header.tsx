@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
         <AntHeader className="shadow-sm m-auto bg-primary-200 w-full p-4 min-h-max">
             <div className="container mx-auto flex justify-between items-center max-w-[1440px]">
                 <Link to={routes.index} className="text-xl font-bold">
-                    Velo Rent
+                    BikeGuard
                 </Link>
 
                 <Flex gap={16}>
