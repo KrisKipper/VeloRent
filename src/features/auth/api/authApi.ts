@@ -1,33 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {BASE_URL} from "../../../shared/api/instance.ts";
+import type {SignInRequest, SignInResponse, SignUpRequest} from "./types.ts";
 
-
-interface SignInRequest {
-    email: string;
-    password: string;
-}
-
-interface SignInResponse {
-    data: {
-        token: string;
-        user: {
-            id: string;
-            email: string;
-            firstName: null | string;
-            lastName: null | string;
-            approved: boolean;
-        };
-    };
-    status: string;
-}
-
-export interface SignUpRequest {
-    email: string;
-    password: string;
-    clientId: string;
-    firstName?: string;
-    lastName?: string;
-}
 
 export const authApi = createApi({
     reducerPath: 'authApi',
