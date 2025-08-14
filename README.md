@@ -1,54 +1,123 @@
-# React + TypeScript + Vite
+# 🚲 BikeGuard - Система учета краж велосипедов
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BikeGuard - это веб-приложение для учета и отслеживания краж велосипедов в городах России. Сервис помогает компаниям, занимающимся прокатом, бороться с незаконными действиями, а пользователям оперативно сообщать о случаях кражи.
 
-Currently, two official plugins are available:
+## ✨ Основные возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🔐 Аутентификация пользователей** — регистрация и вход в систему
+- **📝 Форма сообщения о краже** — удобный интерфейс для подачи заявлений о краже велосипедов
+- **🚲 Каталог велосипедов** — просмотр доступных велосипедов
+- **📊 Аналитика** — учет инцидентов и анализ данных для сотрудников
+- **🔒 Безопасность** — защищенные маршруты и валидация данных
 
-## Expanding the ESLint configuration
+## 🛠 Технологический стек
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19 + TypeScript
+- **UI Framework**: Ant Design
+- **State Management**: Redux Toolkit + Redux Persist
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Linting**: ESLint + TypeScript ESLint
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Быстрый старт
+
+### Предварительные требования
+
+- Node.js 18+ 
+- npm или yarn
+
+### Установка и запуск
+
+1. **Клонируйте репозиторий**
+
+2. **Установите зависимости**
+   ```bash
+   npm install
+   ```
+
+3. **Запустите в режиме разработки**
+   ```bash
+   npm run dev
+   ```
+
+4. **Откройте браузер**
+   ```
+   http://localhost:5173
+   ```
+
+### Доступные команды
+
+```bash
+npm run dev          # Запуск в режиме разработки
+npm run build        # Сборка для продакшена
+npm run lint         # Проверка кода линтером
+npm run preview      # Предварительный просмотр сборки
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Структура проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+src/
+├── app/                    # Конфигурация приложения
+│   ├── providers/         # Провайдеры (ProtectedRoute)
+│   ├── routing/           # Маршрутизация
+│   └── store.ts           # Redux store
+├── entities/              # Бизнес-сущности
+│   └── MainView/          # Главная страница
+├── features/              # Функциональные модули
+│   ├── auth/              # Аутентификация
+│   ├── NavigationMenu/    # Навигация
+│   └── ReportTheftForm/   # Форма сообщения о краже
+├── pages/                 # Страницы приложения
+├── shared/                # Общие компоненты и утилиты
+│   ├── api/               # HTTP клиент
+│   ├── constants/         # Константы
+│   ├── hooks/             # Общие хуки
+│   ├── lib/               # Утилиты
+│   ├── styles/            # Стили
+│   ├── types/             # TypeScript типы
+│   └── ui/                # UI компоненты
+└── widgets/               # Виджеты
+    └── Header/            # Шапка приложения
+```
+
+
+
+### Настройка ESLint
+
+Проект использует современную конфигурацию ESLint с TypeScript. Для расширения правил см. файл `eslint.config.js`.
+
+## 🚀 Деплой
+
+### GitHub Pages
+
+Проект настроен для автоматического деплоя на GitHub Pages через GitHub Actions:
+
+1. **Включите GitHub Pages** в настройках репозитория
+2. **Настройте источник**: Settings → Pages → Source: GitHub Actions
+3. **Запушьте в main** — автоматически запустится сборка и деплой
+
+### Ручной деплой
+
+```bash
+npm run build
+# Загрузите содержимое папки dist на ваш хостинг
+```
+
+## 🤝 Вклад в проект
+
+1. Форкните репозиторий
+2. Создайте ветку для новой функции (`git checkout -b feature/amazing-feature`)
+3. Зафиксируйте изменения (`git commit -m 'Add amazing feature'`)
+4. Запушьте в ветку (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
+
+## 📝 Лицензия
+
+Этот проект лицензирован под MIT License.
+
+## 📞 Поддержка
+
+Если у вас есть вопросы или предложения, создайте Issue в репозитории.
